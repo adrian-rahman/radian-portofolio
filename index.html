@@ -1025,6 +1025,22 @@
     .modal-desc b { color: var(--heading-color); }
     .modal-desc .en { font-style: italic; font-family: var(--font-serif); color: var(--gold); }
 
+    .stabilo {
+      background: linear-gradient(104deg, rgba(254, 240, 138, 0.85) 0%, rgba(253, 224, 71, 0.9) 100%);
+      color: #713f12;
+      padding: 0.12em 0.38em;
+      border-radius: 4px;
+      font-weight: 600;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+    [data-theme="dark"] .stabilo,
+    :root:not([data-theme="light"]) .stabilo {
+      background: linear-gradient(104deg, rgba(245, 158, 11, 0.3) 0%, rgba(217, 119, 6, 0.4) 100%);
+      color: #fde047;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+
     .modal-links-container { display: flex; flex-wrap: wrap; gap: 0.8rem; }
     .modal-btn {
       display: inline-flex;
@@ -1333,7 +1349,7 @@
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Program Kerja</span>
-          <h2 class="section-title">Kolaborasi nyata dalam <em>delapan program</em></h2>
+          <h2 class="section-title">Berikut adalah <em>proker nya:</em></h2>
           <p class="section-sub">Klik tombol detail untuk melihat deskripsi lengkap dan mitigasi program kerja kami.</p>
         </div>
 
@@ -1539,7 +1555,7 @@
         title: "LOGIKA UI 2026",
         abbrev: "",
         icon: "fa-cubes",
-        description: "Lomba Kegiatan Matematika (LOGIKA) UI 2026 adalah kompetisi matematika tingkat nasional untuk siswa SMA/sederajat dan mahasiswa di seluruh Indonesia guna mempopulerkan matematika dan memperkenalkan Departemen Matematika FMIPA UI.<br><br><b>Tujuan:</b> Meningkatkan minat terhadap matematika dan mengenalkan UI ke publik.<br><b>Sasaran:</b> Pelajar SMA dan Mahasiswa Nasional.",
+        description: "Lomba Kegiatan Matematika (LOGIKA) UI 2026 adalah kompetisi matematika tingkat nasional untuk siswa SMA/sederajat dan mahasiswa di seluruh Indonesia guna mempopulerkan matematika dan memperkenalkan Departemen Matematika FMIPA UI.<br><br><b>Tujuan:</b> Meningkatkan minat terhadap matematika dan mengenalkan UI ke publik.",
         links: [
           { label: "Kunjungi Website", url: "https://www.logikaui.id/" }
         ]
@@ -1548,7 +1564,7 @@
         title: "Database Radian",
         abbrev: "",
         icon: "fa-database",
-        description: "Penyediaan pangkalan data akademik terarsip rapi, kuis, soal UTS/UAS beserta kunci jawaban menggunakan penulisan LaTeX terstandar, buku-buku referensi kuliah, serta database prestasi.<br><br><b>Tujuan:</b> Membantu materi pembelajaran mandiri mahasiswa matematika FMIPA UI.<br><b>Sasaran:</b> Mahasiswa Aktif Matematika FMIPA UI.",
+        description: "Penyediaan pangkalan data akademik terarsip rapi, kuis, soal UTS/UAS beserta kunci jawaban menggunakan penulisan LaTeX terstandar, buku-buku referensi kuliah, serta database prestasi.<br><br><b>Tujuan:</b> Membantu materi pembelajaran mandiri mahasiswa matematika FMIPA UI.",
         links: [
           { label: "Lihat Drive", url: "https://drive.google.com/drive/folders/14rHnulHxTLWW6_VedkkBT0r_vgfxWjzq?hl=ID" }
         ]
@@ -1557,7 +1573,7 @@
         title: "Math Discussion",
         abbrev: "",
         icon: "fa-comments",
-        description: "Sesi diskusi online interaktif yang diselenggarakan H-1 menjelang pekan UTS dan UAS untuk membahas kisi-kisi dan penyelesaian soal mata kuliah tingkat satu dan dua.<br><br><b>Tujuan:</b> Mengatasi kesulitan akademis menjelang ujian secara kolektif.<br><b>Sasaran:</b> Mahasiswa tingkat satu dan dua.",
+        description: "Sesi diskusi online interaktif yang diselenggarakan H-1 menjelang pekan UTS dan UAS untuk soal yang ditanyakan oleh mahasiswa kepada Radian.<br><br><b>Tujuan:</b> Mengatasi kesulitan akademis menjelang ujian secara kolektif.",
         links: [
           { label: "Lihat Arsip 1", url: "https://www.instagram.com/p/DWvHYj8ic12/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" },
           { label: "Lihat Arsip 2", url: "https://www.instagram.com/p/DYtW-7OGtOj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" }
@@ -1567,7 +1583,7 @@
         title: "Matematika Aktif Ikut Lomba",
         abbrev: "MAIL",
         icon: "fa-trophy",
-        description: "Program kerja inovatif berupa penyediaan pusat informasi dan pendampingan persiapan perlombaan keilmuan tingkat fakultas, UI, regional, hingga nasional.<br><br><b>Tujuan:</b> Meningkatkan partisipasi dan pencapaian prestasi mahasiswa di luar kelas.<br><b>Sasaran:</b> Mahasiswa Aktif Departemen Matematika FMIPA UI.",
+        description: "Program kerja inovatif berupa penyediaan pusat informasi dan pendampingan persiapan perlombaan keilmuan tingkat fakultas, UI, regional, hingga nasional.<br><br><b>Tujuan:</b> Meningkatkan partisipasi dan pencapaian prestasi mahasiswa di luar kelas.",
         links: [
           { label: "Lihat Publikasi", url: "https://www.instagram.com/p/DY6VcL8Gq6F/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" }
         ]
@@ -1587,7 +1603,7 @@
         title: "Matek Ambis",
         abbrev: "",
         icon: "fa-graduation-cap",
-        description: "Program publikasi apresiasi fungsional melalui poster ucapan selamat atas pencapaian prestasi kontingen matematika di berbagai perlombaan, sekaligus penyediaan pusat publikasi informasi kompetisi terbaru yang dapat diikuti oleh mahasiswa Departemen Matematika.<br><br><b>Tujuan:</b> Memberikan dorongan moral, dukungan moril, dan apresiasi nyata bagi kontingen lomba matematika serta meningkatkan minat kompetisi mahasiswa.",
+        description: "Program apresiasi melalui <mark class=\"stabilo\">postingan ucapan selamat</mark> atas pencapaian prestasi kontingen matematika di berbagai perlombaan, sekaligus penyediaan <mark class=\"stabilo\">info Lomba</mark> yang dapat diikuti oleh mahasiswa Departemen Matematika.<br><br><b>Tujuan:</b> Memberikan dorongan moral, dukungan moril, dan apresiasi nyata bagi kontingen lomba matematika serta meningkatkan minat kompetisi mahasiswa.",
         links: [
           { label: "Lihat Publikasi 1", url: "https://www.instagram.com/p/DY6kOQymjuj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" },
           { label: "Lihat Publikasi 2", url: "https://www.instagram.com/p/DbAlUpOmuzM/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" }
@@ -1606,17 +1622,17 @@
         title: "Matrikulasi x Early Class",
         abbrev: "",
         icon: "fa-clock",
-        description: "Program matrikulasi luring (offline) sebelum masa perkuliahan aktif untuk membekali mahasiswa baru angkatan 2026 dengan konsep-konsep dasar Matematika Dasar. Kegiatan ini dipandu langsung oleh dosen departemen serta pengajar mahasiswa senior.<br><br><b>Tujuan:</b> Mempersiapkan kesiapan akademis mahasiswa baru dalam menghadapi transisi perkuliahan matematika tingkat awal.<br><b>Sasaran:</b> Mahasiswa Baru Angkatan 2026."
+        description: "Program matrikulasi luring (offline) sebelum masa perkuliahan aktif untuk membekali mahasiswa baru angkatan 2026 dengan konsep-konsep dasar Matematika Dasar. Kegiatan ini dipandu langsung oleh dosen departemen serta pengajar mahasiswa senior.<br><br><b>Tujuan:</b> Mempersiapkan kesiapan akademis mahasiswa baru dalam menghadapi transisi perkuliahan matematika tingkat awal."
       }
     };
 
     const MEMBER_DATA = [
       { name: "Mohammad Adrian Rahman Ekoputra", role: "Kepala Departemen (Matematika 2024)", isLeader: true, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com", photo: "foto/adrian.png" },
       { name: "Firdha Nazla Soblia", role: "Deputi I (Matematika 2024)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com", photo: "foto/firdha.png" },
-      { name: "Dimaz Satya Ardendi", role: "Deputi II (Matematika 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
+      { name: "Dimaz Satya Ardendi", role: "Deputi II (Matematika 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com", photo: "foto/dimaz.png" },
       { name: "Inshovi Amiroh", role: "Staf Ahli (Statistika 2024)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
       { name: "Syandana Rizky Pratama", role: "Staf Ahli (Ilmu Aktuaria 2024)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
-      { name: "Alvarado Jumadin Pratama Putra", role: "Staf (Matematika 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
+      { name: "Alvarado Jumadin Pratama Putra", role: "Staf (Matematika 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com", photo: "foto/alvarado.png" },
       { name: "Chelsea Evengeline", role: "Staf (Ilmu Aktuaria 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
       { name: "Chesta Adabi Martono", role: "Staf (Matematika 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
       { name: "Keefa Ardaprathama Putra", role: "Staf (Ilmu Aktuaria 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
