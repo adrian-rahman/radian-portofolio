@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website Portofolio Resmi Departemen Radian - HMDM FMIPA UI 2026. Wadah pengembangan minat, bakat, dan keilmuan matematika.">
+  <meta name="theme-color" content="#0b0c10">
+  <title>Departemen Radian – HMDM FMIPA UI 2026</title>
+  <link rel="icon" type="image/png" href="https://iili.io/CgL7KNI.png">
+  <script defer src="/_vercel/insights/script.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --bg-elevated: #12141c;
+      --bg-card: #151824;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.16);
+      
+      --text: #f4f5f8;
+      --text-muted: #9699a6;
+      --text-faint: #5a5d6e;
+
+      --red: #d92525;
+      --red-bright: #eb3636;
+      --red-deep: #8f1313;
+      --red-subtle: rgba(217, 37, 37, 0.1);
+      --red-border: rgba(217, 37, 37, 0.3);
+
+      --gold: #d4a359;
+      --gold-subtle: rgba(212, 163, 89, 0.12);
+
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --header-h: 72px;
+      --transition: 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--header-h) + 24px);
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-main);
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      background-color: var(--bg);
+      background-image: radial-gradient(circle at 50% 0%, rgba(217, 37, 37, 0.08) 0%, transparent 60%);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-main);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    p { color: var(--text-muted); font-size: 0.98rem; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    ul { list-style: none; }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 1.75rem;
+      width: 100%;
+    }
+
+    ::selection { background: var(--red); color: #ffffff; }
+    :focus-visible { outline: 2px solid var(--red-bright); outline-offset: 2px; }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: var(--red);
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      z-index: 2000;
+      font-weight: 600;
+    }
+    .skip-link:focus { left: 0; }
+
+    /* Section Utilities */
+    .section { padding: 6.5rem 0; }
+    .section-head { margin-bottom: 3.5rem; max-width: 620px; }
+    .section-head.with-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      max-width: 100%;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .section-head-text { max-width: 600px; }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--red-bright);
+      margin-bottom: 0.85rem;
+    }
+    .section-title { font-size: clamp(2rem, 4vw, 2.9rem); letter-spacing: -0.03em; }
+    .section-title em { font-style: italic; font-family: var(--font-serif); color: var(--gold); font-weight: 400; }
+    .section-sub { margin-top: 0.9rem; font-size: 1.02rem; line-height: 1.65; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-family: var(--font-main);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.85rem 1.6rem;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      transition: all var(--transition);
+    }
+    .btn-primary {
+      background: var(--red);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: var(--red-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(217, 37, 37, 0.35);
+    }
+    .btn-primary .fa-arrow-right {
+      transition: transform var(--transition);
+    }
+    .btn-primary:hover .fa-arrow-right {
+      transform: translateX(4px);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--border-hover);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Scroll Reveals */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s var(--transition), transform 0.6s var(--transition);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ===== PRELOADER ===== */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 5000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      background: var(--bg);
+      transition: opacity 0.5s var(--transition), visibility 0.5s;
+    }
+    #preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    body.loading { overflow: hidden; }
+
+    .preloader-spinner {
+      width: 44px;
+      height: 44px;
+      border: 3px solid rgba(255, 255, 255, 0.08);
+      border-top-color: var(--red);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .preloader-title { font-size: 1.15rem; font-weight: 700; color: var(--text); }
+    .preloader-sub { font-size: 0.82rem; color: var(--text-muted); }
+
+    /* ===== HEADER ===== */
+    #site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--header-h);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      background: rgba(11, 12, 16, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background var(--transition);
+    }
+    #site-header.scrolled {
+      background: rgba(11, 12, 16, 0.95);
+      border-bottom-color: var(--border-hover);
+    }
+
+    .nav-container { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .nav-brand { display: flex; align-items: center; gap: 0.8rem; }
+    .nav-logo { height: 34px; width: auto; border-radius: 6px; }
+    .nav-brand-text { font-size: 1.15rem; font-weight: 700; color: var(--text); }
+    .nav-brand-text b { color: var(--red-bright); }
+
+    .nav-menu { display: flex; align-items: center; gap: 2rem; }
+    .nav-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: color var(--transition);
+      padding: 0.3rem 0;
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--red);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform var(--transition);
+    }
+    .nav-link:hover, .nav-link.active { color: #ffffff; }
+    .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); transform-origin: left; }
+
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 120;
+    }
+    .hamburger-icon {
+      display: block;
+      position: relative;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+    }
+    .hamburger-icon::before, .hamburger-icon::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      transition: transform var(--transition), top var(--transition);
+    }
+    .hamburger-icon::before { top: -6px; }
+    .hamburger-icon::after { top: 6px; }
+    .nav-toggle[aria-expanded="true"] .hamburger-icon { background: transparent; }
+    .nav-toggle[aria-expanded="true"] .hamburger-icon::before { transform: rotate(45deg); top: 0; }
+    .nav-toggle[aria-expanded="true"] .hamburger-icon::after { transform: rotate(-45deg); top: 0; }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: calc(var(--header-h) + 60px) 0 5.5rem;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: clamp(2.6rem, 5.2vw, 4.2rem);
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.035em;
+    }
+    .hero-title .accent {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--red-bright);
+      font-weight: 600;
+    }
+    .hero-tagline {
+      font-size: 1.1rem;
+      max-width: 480px;
+      margin-bottom: 2.2rem;
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+    /* Hero Slideshow */
+    .hero-slideshow {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    .hero-slideshow-inner {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      aspect-ratio: 4 / 3;
+    }
+    .hero-slideshow-inner::-webkit-scrollbar { display: none; }
+    .slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      position: relative;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slide-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--text-faint);
+      background: var(--bg-card);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .slide-controls {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      z-index: 10;
+    }
+    .slide-control-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: rgba(11, 12, 16, 0.75);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+    }
+    .slide-control-btn:hover {
+      background: var(--red);
+      border-color: var(--red);
+    }
+    .slide-indicator {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 10;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text);
+      background: rgba(11, 12, 16, 0.75);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== VISI MISI ===== */
+    .visi-misi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+    .visi-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 2.8rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .visi-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      color: #ffffff;
+    }
+    .visi-text {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .visi-text .highlight {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .misi-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .misi-item {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.6rem 1.8rem;
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      transition: border-color var(--transition);
+    }
+    .misi-item:hover {
+      border-color: var(--border-hover);
+    }
+    .misi-num {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--red-bright);
+      background: var(--red-subtle);
+      border: 1px solid var(--red-border);
+      border-radius: var(--radius-sm);
+      padding: 0.2rem 0.55rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .misi-item h4 {
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
+      color: #ffffff;
+    }
+    .misi-item p { font-size: 0.92rem; line-height: 1.6; }
+
+    /* ===== PROGRAM KERJA (VERTICAL TIMELINE) ===== */
+    .proker-timeline {
+      position: relative;
+      margin-top: 3.5rem;
+    }
+    .proker-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-bottom: 5.5rem;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-node {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 3px solid var(--red);
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      transition: all var(--transition);
+    }
+    .timeline-item:hover .timeline-node {
+      background: var(--red-bright);
+      border-color: #ffffff;
+      transform: translate(-50%, -50%) scale(1.3);
+    }
+
+    .timeline-item:nth-child(even) .timeline-photo-col { order: 2; }
+    .timeline-item:nth-child(even) .timeline-text-col {
+      order: 1;
+      text-align: right;
+      align-items: flex-end;
+    }
+    .timeline-item:nth-child(even) .proker-link { align-self: flex-end; }
+    .timeline-item:nth-child(even) .proker-meta { justify-content: flex-end; }
+
+    .timeline-item:nth-child(odd) .timeline-photo-col { order: 1; }
+    .timeline-item:nth-child(odd) .timeline-text-col {
+      order: 2;
+      text-align: left;
+      align-items: flex-start;
+    }
+    .timeline-item:nth-child(odd) .proker-link { align-self: flex-start; }
+    .timeline-item:nth-child(odd) .proker-meta { justify-content: flex-start; }
+
+    .timeline-text-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .proker-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+    .proker-cat {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .proker-abbrev {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.15rem 0.5rem;
+    }
+
+    .timeline-text-col h3 {
+      font-size: 1.75rem;
+      margin-bottom: 0.6rem;
+      color: #ffffff;
+    }
+    .proker-brief {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+      max-width: 460px;
+    }
+    .proker-brief .en { font-style: italic; font-family: var(--font-serif); color: var(--gold); }
+
+    .proker-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1.2rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .proker-link:hover {
+      background: var(--red);
+      border-color: var(--red);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+    .proker-link i { font-size: 0.75rem; transition: transform var(--transition); }
+    .proker-link:hover i { transform: translateX(3px); }
+
+    .timeline-photo-col {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      transition: border-color var(--transition);
+    }
+    .timeline-item:hover .timeline-photo-col {
+      border-color: var(--border-hover);
+    }
+    .timeline-photo-inner {
+      aspect-ratio: 16 / 10;
+      position: relative;
+      overflow: hidden;
+    }
+    .timeline-photo-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s var(--transition);
+    }
+    .timeline-item:hover .timeline-photo-inner img {
+      transform: scale(1.04);
+    }
+
+    /* ===== STAFF SECTION (HORIZONTAL SCROLL SLIDER) ===== */
+    .slider-controls {
+      display: flex;
+      gap: 0.6rem;
+    }
+    .slider-arrow-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+    }
+    .slider-arrow-btn:hover {
+      background: var(--red);
+      border-color: var(--red);
+      color: #fff;
+    }
+
+    .staff-slider-container {
+      position: relative;
+      margin-top: 1rem;
+    }
+    .staff-slider {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 0.5rem 0 1.5rem;
+    }
+    .staff-slider::-webkit-scrollbar { display: none; }
+
+    .member-card {
+      flex: 0 0 calc(25% - 1.125rem);
+      scroll-snap-align: start;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 2rem 1.4rem 1.6rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .member-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+    }
+    .member-card.leader {
+      border-color: rgba(212, 163, 89, 0.3);
+    }
+
+    .member-avatar {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      margin-bottom: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #ffffff;
+      overflow: hidden;
+      border: 2px solid var(--border);
+    }
+    .member-card.leader .member-avatar {
+      border-color: var(--gold);
+    }
+    .member-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .av-1 { background: #8f1313; }
+    .av-2 { background: #2b3042; }
+    .av-3 { background: #5c3818; }
+    .av-4 { background: #1c2e28; }
+
+    .member-name {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.4rem;
+      height: 2.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.3;
+    }
+    .member-role {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--gold);
+      background: var(--gold-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.3rem 0.65rem;
+      margin-bottom: 1.2rem;
+      min-height: 2.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.3;
+    }
+    .member-socials {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: auto;
+    }
+    .member-social-link {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      transition: all var(--transition);
+    }
+    .member-social-link:hover {
+      background: var(--red);
+      border-color: var(--red);
+      color: #ffffff;
+    }
+
+    /* ===== MODAL ===== */
+    dialog {
+      border: 1px solid var(--border-hover);
+      border-radius: var(--radius-md);
+      padding: 0;
+      max-width: 600px;
+      width: min(92vw, 600px);
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--text);
+      background: var(--bg-elevated);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+    }
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-inner { padding: 2.2rem; position: relative; }
+    .modal-close-btn {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+    }
+    .modal-close-btn:hover { background: var(--red); border-color: var(--red); color: #fff; }
+
+    .modal-cat {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+    .modal-head {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .modal-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: var(--red-subtle);
+      border: 1px solid var(--red-border);
+      color: var(--red-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .modal-title { font-size: 1.5rem; color: #ffffff; }
+    .modal-abbrev {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.15rem 0.5rem;
+      margin-top: 0.3rem;
+    }
+    .modal-desc { font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.8rem; }
+    .modal-desc b { color: #ffffff; }
+    .modal-desc .en { font-style: italic; font-family: var(--font-serif); color: var(--gold); }
+
+    .modal-links-container { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+    .modal-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--red);
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.75rem 1.4rem;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition);
+    }
+    .modal-btn:hover { background: var(--red-bright); transform: translateY(-2px); }
+    .modal-btn[data-disabled="true"] {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-faint);
+      cursor: default;
+      pointer-events: none;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      margin-top: 4rem;
+      padding: 4.5rem 0 2rem;
+      background: #08080c;
+      border-top: 1px solid var(--border);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.7fr 1fr;
+      gap: 3.5rem;
+      align-items: start;
+      margin-bottom: 3rem;
+    }
+    .footer-brand .footer-logo { height: 38px; width: auto; border-radius: 6px; margin-bottom: 1rem; }
+    .footer-title { font-size: 1.5rem; margin-bottom: 0.25rem; }
+    .footer-title b { color: var(--red-bright); }
+    .footer-subtitle { font-size: 0.85rem; color: var(--text-faint); font-weight: 600; }
+    .footer-desc { margin-top: 0.85rem; font-size: 0.92rem; max-width: 400px; }
+
+    .footer-social .social-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .social-links { display: flex; gap: 0.75rem; }
+    .social-links a {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      transition: all var(--transition);
+    }
+    .social-links a:hover {
+      background: var(--red);
+      border-color: var(--red);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.82rem;
+      color: var(--text-faint);
+    }
+    .footer-bottom strong { color: var(--text-muted); }
+
+    /* ===== BACK TO TOP ===== */
+    #back-to-top {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      color: var(--text);
+      font-size: 0.9rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all var(--transition);
+      z-index: 90;
+    }
+    #back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+    #back-to-top:hover { background: var(--red); border-color: var(--red); color: #fff; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .member-card { flex: 0 0 calc(33.333% - 1rem); }
+      .visi-misi-grid { grid-template-columns: 1fr; }
+      .timeline-item { gap: 3rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-menu {
+        position: fixed;
+        top: var(--header-h);
+        left: 0;
+        width: 100%;
+        background: rgba(11, 12, 16, 0.98);
+        border-bottom: 1px solid var(--border);
+        padding: 1.8rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: all var(--transition);
+      }
+      .nav-menu.active { opacity: 1; visibility: visible; transform: none; }
+
+      .hero { padding-top: calc(var(--header-h) + 30px); }
+      .hero-grid { grid-template-columns: 1fr; gap: 2.8rem; }
+
+      .proker-timeline::before { left: 18px; }
+      .timeline-node { left: 18px; }
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+        margin-bottom: 4.5rem;
+        padding-left: 45px;
+      }
+      .timeline-item:nth-child(even) .timeline-photo-col,
+      .timeline-item:nth-child(odd) .timeline-photo-col { order: 2; }
+      .timeline-item:nth-child(even) .timeline-text-col,
+      .timeline-item:nth-child(odd) .timeline-text-col {
+        order: 1;
+        text-align: left;
+        align-items: flex-start;
+      }
+      .timeline-item:nth-child(even) .proker-link,
+      .timeline-item:nth-child(odd) .proker-link { align-self: flex-start; }
+      .timeline-item:nth-child(even) .proker-meta { justify-content: flex-start; }
+
+      .member-card { flex: 0 0 calc(50% - 0.75rem); }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 576px) {
+      .container { padding: 0 1.2rem; }
+      .section { padding: 4.5rem 0; }
+      .hero-actions .btn { width: 100%; }
+      .member-card { flex: 0 0 85%; }
+      .modal-inner { padding: 1.8rem 1.4rem; }
+    }
+  </style>
+</head>
+<body class="loading">
+
+  <!-- ============ PRELOADER ============ -->
+  <div id="preloader" aria-hidden="true">
+    <div class="preloader-spinner"></div>
+    <span class="preloader-title">Departemen Radian</span>
+    <span class="preloader-sub">HMDM FMIPA UI 2026</span>
+  </div>
+
+  <a class="skip-link" href="#main">Lewati ke konten utama</a>
+
+  <!-- ============ HEADER ============ -->
+  <header id="site-header">
+    <div class="container nav-container">
+      <a href="#beranda" class="nav-brand" aria-label="Beranda Departemen Radian">
+        <img src="https://iili.io/CgL7KNI.png" alt="Logo Departemen Radian HMDM FMIPA UI" class="nav-logo" onerror="this.style.display='none';">
+        <span class="nav-brand-text">Departemen <b>Radian</b></span>
+      </a>
+
+      <nav aria-label="Navigasi utama">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#beranda" class="nav-link">Beranda</a></li>
+          <li><a href="#visi-misi" class="nav-link">Tujuan</a></li>
+          <li><a href="#program-kerja" class="nav-link">Program Kerja</a></li>
+          <li><a href="#pengurus" class="nav-link">Staff</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="nav-menu">
+        <span class="hamburger-icon"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="beranda">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <span class="eyebrow reveal">HMDM FMIPA UI 2026</span>
+          <h1 class="hero-title reveal">Departemen <span class="accent">Radian</span></h1>
+          <p class="hero-tagline reveal">Mengembangkan minat dan bakat mahasiswa dalam bidang keilmuan serta membangun fondasi berpikir logis, kolaboratif, dan berprestasi.</p>
+
+          <div class="hero-actions reveal">
+            <a href="#program-kerja" class="btn btn-primary">Lihat Program Kerja <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://www.instagram.com/radian.hmdm/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><i class="fa-brands fa-instagram"></i><span>radian.hmdm</span></a>
+          </div>
+        </div>
+
+        <div class="hero-photo reveal">
+          <div class="hero-slideshow" id="hero-slideshow">
+            <div class="hero-slideshow-inner">
+              <div class="slide active"><img src="foto/foto1.jpg" alt="Foto Departemen Radian 1" onerror="this.style.display='none';"><span class="slide-fallback" style="display:none;"><i class="fa-solid fa-camera"></i>Dokumentasi Radian</span></div>
+              <div class="slide"><img src="foto/foto2.jpg" alt="Foto Departemen Radian 2" onerror="this.style.display='none';"><span class="slide-fallback" style="display:none;"><i class="fa-solid fa-camera"></i>Dokumentasi Radian</span></div>
+              <div class="slide"><img src="foto/foto3.jpg" alt="Foto Departemen Radian 3" onerror="this.style.display='none';"><span class="slide-fallback" style="display:none;"><i class="fa-solid fa-camera"></i>Dokumentasi Radian</span></div>
+              <div class="slide"><img src="foto/foto4.jpg" alt="Foto Departemen Radian 4" onerror="this.style.display='none';"><span class="slide-fallback" style="display:none;"><i class="fa-solid fa-camera"></i>Dokumentasi Radian</span></div>
+              <div class="slide"><img src="foto/foto5.jpg" alt="Foto Departemen Radian 5" onerror="this.style.display='none';"><span class="slide-fallback" style="display:none;"><i class="fa-solid fa-camera"></i>Dokumentasi Radian</span></div>
+              <div class="slide"><img src="foto/foto6.jpg" alt="Foto Departemen Radian 6" onerror="this.style.display='none';"><span class="slide-fallback" style="display:none;"><i class="fa-solid fa-camera"></i>Dokumentasi Radian</span></div>
+              <div class="slide"><img src="foto/foto7.jpg" alt="Foto Departemen Radian 7" onerror="this.style.display='none';"><span class="slide-fallback" style="display:none;"><i class="fa-solid fa-camera"></i>Dokumentasi Radian</span></div>
+              <div class="slide"><img src="foto/foto8.jpg" alt="Foto Departemen Radian 8" onerror="this.style.display='none';"><span class="slide-fallback" style="display:none;"><i class="fa-solid fa-camera"></i>Dokumentasi Radian</span></div>
+              <div class="slide"><img src="foto/foto9.jpg" alt="Foto Departemen Radian 9" onerror="this.style.display='none';"><span class="slide-fallback" style="display:none;"><i class="fa-solid fa-camera"></i>Dokumentasi Radian</span></div>
+            </div>
+
+            <div class="slide-controls">
+              <button class="slide-control-btn" id="slide-prev" aria-label="Foto sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+              <button class="slide-control-btn" id="slide-next" aria-label="Foto selanjutnya"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+            <div class="slide-indicator" id="slide-indicator">1 / 9</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VISI MISI ============ -->
+    <section class="section" id="visi-misi" style="border-top: 1px solid var(--border);">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Tujuan</span>
+          <h2 class="section-title">Visi & <em>Misi</em> Departemen</h2>
+          <p class="section-sub">Komitmen kami untuk membangun ekosistem keilmuan matematika yang berintegritas, adaptif, dan berdampak nyata.</p>
+        </div>
+
+        <div class="visi-misi-grid reveal">
+          <!-- Visi Card -->
+          <div class="visi-card">
+            <h3>Visi Kami</h3>
+            <p class="visi-text">
+              “Menjadikan Departemen Radian HMD Matematika FMIPA UI sebagai <span class="highlight">katalis pergerakan keilmuan</span> yang adaptif dan inovatif melalui lingkungan pendampingan akademik yang kolektif serta pelayanan yang kompeten guna mengakselerasi pengembangan minat, bakat, dan prestasi mahasiswa Departemen Matematika FMIPA UI di bidang keilmuan.”
+            </p>
+          </div>
+
+          <!-- Misi List -->
+          <div class="misi-list">
+            <!-- Misi 1 -->
+            <div class="misi-item">
+              <span class="misi-num">01</span>
+              <div>
+                <h4>Lingkungan Kerja Harmonis</h4>
+                <p>Membangun lingkungan internal yang harmonis dan kolektif guna menciptakan ruang kerja yang suportif bagi seluruh fungsionaris.</p>
+              </div>
+            </div>
+
+            <!-- Misi 2 -->
+            <div class="misi-item">
+              <span class="misi-num">02</span>
+              <div>
+                <h4>Wadah Pengembangan Adaptif</h4>
+                <p>Menjadi katalis dalam menyediakan wadah pengembangan minat dan bakat di bidang keilmuan yang adaptif bagi mahasiswa Departemen Matematika FMIPA UI.</p>
+              </div>
+            </div>
+
+            <!-- Misi 3 -->
+            <div class="misi-item">
+              <span class="misi-num">03</span>
+              <div>
+                <h4>Penyebaran Info & Dukungan Prestasi</h4>
+                <p>Memfasilitasi penyebaran informasi secara kompeten melalui konten edukatif, akses kompetisi keilmuan, serta apresiasi prestasi mahasiswa.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROGRAM KERJA ============ -->
+    <section class="section" id="program-kerja" style="border-top: 1px solid var(--border);">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Program Kerja</span>
+          <h2 class="section-title">Kolaborasi nyata dalam <em>delapan program</em></h2>
+          <p class="section-sub">Klik tombol detail untuk melihat deskripsi lengkap dan mitigasi program kerja kami.</p>
+        </div>
+
+        <div class="proker-timeline">
+          <!-- Item 01 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-node"></div>
+            <div class="timeline-photo-col">
+              <div class="timeline-photo-inner">
+                <img src="foto/foto1.jpg" alt="LOGIKA UI 2026" onerror="this.style.display='none';">
+              </div>
+            </div>
+            <div class="timeline-text-col">
+              <div class="proker-meta">
+                <span class="proker-cat">Nasional</span>
+              </div>
+              <h3>LOGIKA UI 2026</h3>
+              <p class="proker-brief">Lomba Kegiatan Matematika UI berskala nasional untuk siswa SMA/sederajat dan mahasiswa di seluruh Indonesia guna memperkenalkan Departemen Matematika.</p>
+              <button class="proker-link" data-proker-id="1">Lihat Detail <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <!-- Item 02 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-node"></div>
+            <div class="timeline-photo-col">
+              <div class="timeline-photo-inner">
+                <img src="foto/database_radian.png" alt="Database Radian" onerror="this.style.display='none';">
+              </div>
+            </div>
+            <div class="timeline-text-col">
+              <div class="proker-meta">
+                <span class="proker-cat">Keilmuan</span>
+              </div>
+              <h3>Database Radian</h3>
+              <p class="proker-brief">Penyediaan <span class="en">database</span> referensi akademik, soal-soal latihan menggunakan LaTeX, buku kuliah, dan pengarsipan prestasi akademik mahasiswa.</p>
+              <button class="proker-link" data-proker-id="2">Lihat Detail <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <!-- Item 03 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-node"></div>
+            <div class="timeline-photo-col">
+              <div class="timeline-photo-inner">
+                <img src="foto/math_discussion.png" alt="Math Discussion" onerror="this.style.display='none';">
+              </div>
+            </div>
+            <div class="timeline-text-col">
+              <div class="proker-meta">
+                <span class="proker-cat">Diskusi</span>
+              </div>
+              <h3>Math Discussion</h3>
+              <p class="proker-brief">Sesi diskusi daring di media sosial Departemen Radian terkait kisi-kisi soal kuis, UTS, dan UAS menjelang pekan ujian.</p>
+              <button class="proker-link" data-proker-id="3">Lihat Detail <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <!-- Item 04 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-node"></div>
+            <div class="timeline-photo-col">
+              <div class="timeline-photo-inner">
+                <img src="foto/mail.png" alt="Matematika Aktif Ikut Lomba (MAIL)" onerror="this.style.display='none';">
+              </div>
+            </div>
+            <div class="timeline-text-col">
+              <div class="proker-meta">
+                <span class="proker-cat">Prestasi</span>
+                <span class="proker-abbrev">MAIL</span>
+              </div>
+              <h3>Matematika Aktif Ikut Lomba</h3>
+              <p class="proker-brief">Pangkalan informasi digital terpusat mengenai info perlombaan keilmuan dan pendampingan persiapan kompetisi bagi mahasiswa.</p>
+              <button class="proker-link" data-proker-id="4">Lihat Detail <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <!-- Item 05 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-node"></div>
+            <div class="timeline-photo-col">
+              <div class="timeline-photo-inner">
+                <img src="foto/malmingan_amat.png" alt="Malmingan Amat (MALMAT)" onerror="this.style.display='none';">
+              </div>
+            </div>
+            <div class="timeline-text-col">
+              <div class="proker-meta">
+                <span class="proker-cat">Diskusi</span>
+                <span class="proker-abbrev">MALMAT</span>
+              </div>
+              <h3>Malmingan Amat</h3>
+              <p class="proker-brief">Penyebaran konten infografis edukatif, fakta unik, dan video di media sosial untuk mempopulerkan matematika secara menghibur.</p>
+              <button class="proker-link" data-proker-id="5">Lihat Detail <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <!-- Item 06 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-node"></div>
+            <div class="timeline-photo-col">
+              <div class="timeline-photo-inner">
+                <img src="foto/matek_ambis.png" alt="Matek Ambis" onerror="this.style.display='none';">
+              </div>
+            </div>
+            <div class="timeline-text-col">
+              <div class="proker-meta">
+                <span class="proker-cat">Akademik</span>
+              </div>
+              <h3>Matek Ambis</h3>
+              <p class="proker-brief">Pemberian apresiasi ucapan selamat atas prestasi kontingen matematika serta penyediaan pusat informasi perlombaan terbaru.</p>
+              <button class="proker-link" data-proker-id="6">Lihat Detail <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <!-- Item 07 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-node"></div>
+            <div class="timeline-photo-col">
+              <div class="timeline-photo-inner">
+                <img src="foto/d_stan.jpg" alt="Diskusi Peminatan (D-Stan)" onerror="this.style.display='none';">
+              </div>
+            </div>
+            <div class="timeline-text-col">
+              <div class="proker-meta">
+                <span class="proker-cat">Keilmuan</span>
+                <span class="proker-abbrev">D-Stan</span>
+              </div>
+              <h3>Diskusi Peminatan</h3>
+              <p class="proker-brief">Sosialisasi interaktif bersama dosen untuk mengenalkan fokus peminatan studi di Departemen Matematika dan memberikan panduan studi lanjut.</p>
+              <button class="proker-link" data-proker-id="7">Lihat Detail <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <!-- Item 08 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-node"></div>
+            <div class="timeline-photo-col">
+              <div class="timeline-photo-inner">
+                <img src="foto/foto8.jpg" alt="Matrikulasi x Early Class" onerror="this.style.display='none';">
+              </div>
+            </div>
+            <div class="timeline-text-col">
+              <div class="proker-meta">
+                <span class="proker-cat">Akademik</span>
+              </div>
+              <h3>Matrikulasi x Early Class</h3>
+              <p class="proker-brief">Program matrikulasi tatap muka (offline) materi Matematika Dasar bagi mahasiswa baru angkatan 2026 bersama dosen dan pengajar mahasiswa.</p>
+              <button class="proker-link" data-proker-id="8">Lihat Detail <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STAFF SECTION ============ -->
+    <section class="section" id="pengurus" style="border-top: 1px solid var(--border);">
+      <div class="container">
+        <div class="section-head with-controls reveal">
+          <div class="section-head-text">
+            <span class="eyebrow">Staff</span>
+            <h2 class="section-title">Orang di balik <em>Radian</em></h2>
+          </div>
+          <div class="slider-controls">
+            <button class="slider-arrow-btn" id="member-prev" aria-label="Staff sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="slider-arrow-btn" id="member-next" aria-label="Staff selanjutnya"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+
+        <div class="staff-slider-container reveal">
+          <div class="staff-slider" id="member-slider">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ MODAL ============ -->
+  <dialog id="proker-modal" aria-labelledby="modal-title">
+    <div class="modal-inner">
+      <button class="modal-close-btn" id="modal-close" aria-label="Tutup dialog"><i class="fa-solid fa-xmark"></i></button>
+      <span class="modal-cat" id="modal-cat">Kategori</span>
+      <div class="modal-head">
+        <div class="modal-icon" id="modal-icon"><i class="fa-solid fa-circle-info"></i></div>
+        <div>
+          <h3 class="modal-title" id="modal-title">Nama Program</h3>
+          <span class="modal-abbrev" id="modal-abbrev" style="display:none;"></span>
+        </div>
+      </div>
+      <p class="modal-desc" id="modal-desc">Deskripsi lengkap program kerja...</p>
+      <div id="modal-links-container" class="modal-links-container"></div>
+    </div>
+  </dialog>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="https://iili.io/CgL7KNI.png" alt="Logo Departemen Radian HMDM FMIPA UI" class="footer-logo" onerror="this.style.display='none';">
+        <h2 class="footer-title">Departemen <b>Radian</b></h2>
+        <span class="footer-subtitle">HMDM FMIPA UI 2026</span>
+        <p class="footer-desc">Wadah pengembangan minat, bakat, dan keilmuan matematika bagi seluruh mahasiswa Departemen Matematika FMIPA UI.</p>
+      </div>
+      <div class="footer-social">
+        <span class="social-label">Tautan Sosial</span>
+        <div class="social-links">
+          <a href="https://www.instagram.com/radian.hmdm/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Radian"><i class="fa-brands fa-instagram"></i></a>
+          <a href="mailto:radian.hmdmfmipaui@gmail.com" aria-label="Email Radian"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&copy; 2026 <strong>Departemen Radian</strong> — HMDM FMIPA UI. Hak cipta dilindungi.</span>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Kembali ke atas"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script>
+    const PROKER_DATA = {
+      1: {
+        title: "LOGIKA UI 2026",
+        category: "Nasional",
+        abbrev: "",
+        icon: "fa-cubes",
+        description: "Lomba Kegiatan Matematika (LOGIKA) UI 2026 adalah kompetisi matematika tingkat nasional untuk siswa SMA/sederajat dan mahasiswa di seluruh Indonesia guna mempopulerkan matematika dan memperkenalkan Departemen Matematika FMIPA UI.<br><br><b>Tujuan:</b> Meningkatkan minat terhadap matematika dan mengenalkan UI ke publik.<br><b>Sasaran:</b> Pelajar SMA dan Mahasiswa Nasional.",
+        link: "https://www.logikaui.id/"
+      },
+      2: {
+        title: "Database Radian",
+        category: "Keilmuan",
+        abbrev: "",
+        icon: "fa-database",
+        description: "Penyediaan pangkalan data akademik terarsip rapi, kuis, soal UTS/UAS beserta kunci jawaban menggunakan penulisan LaTeX terstandar, buku-buku referensi kuliah, serta database prestasi.<br><br><b>Tujuan:</b> Membantu materi pembelajaran mandiri mahasiswa matematika FMIPA UI.<br><b>Sasaran:</b> Mahasiswa Aktif Matematika FMIPA UI.",
+        link: "https://drive.google.com/drive/folders/14rHnulHxTLWW6_VedkkBT0r_vgfxWjzq?hl=ID"
+      },
+      3: {
+        title: "Math Discussion",
+        category: "Diskusi",
+        abbrev: "",
+        icon: "fa-comments",
+        description: "Sesi diskusi online interaktif yang diselenggarakan H-1 menjelang pekan UTS dan UAS untuk membahas kisi-kisi dan penyelesaian soal mata kuliah tingkat satu dan dua.<br><br><b>Tujuan:</b> Mengatasi kesulitan akademis menjelang ujian secara kolektif.<br><b>Sasaran:</b> Mahasiswa tingkat satu dan dua.",
+        links: [
+          { label: "Pembahasan Ujian Sesi 1", url: "https://www.instagram.com/p/DWvHYj8ic12/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" },
+          { label: "Pembahasan Ujian Sesi 2", url: "https://www.instagram.com/p/DYtW-7OGtOj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" }
+        ]
+      },
+      4: {
+        title: "Matematika Aktif Ikut Lomba",
+        category: "Prestasi",
+        abbrev: "MAIL",
+        icon: "fa-trophy",
+        description: "Program kerja inovatif berupa penyediaan pusat informasi dan pendampingan persiapan perlombaan keilmuan tingkat fakultas, UI, regional, hingga nasional.<br><br><b>Tujuan:</b> Meningkatkan partisipasi dan pencapaian prestasi mahasiswa di luar kelas.<br><b>Sasaran:</b> Mahasiswa Aktif Departemen Matematika FMIPA UI.",
+        link: "https://www.instagram.com/p/DY6VcL8Gq6F/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+      },
+      5: {
+        title: "Malmingan Amat",
+        category: "Diskusi",
+        abbrev: "MALMAT",
+        icon: "fa-book-open",
+        description: "Penyebaran konten infografis edukatif, video, serta fakta unik berpengetahuan matematika secara berkala melalui media sosial resmi HMDM FMIPA UI.<br><br><b>Tujuan:</b> Mengedukasi dan menghibur mahasiswa serta masyarakat luas lewat sudut pandang matematika yang unik.",
+        links: [
+          { label: "Konten Edukasi Part 1", url: "https://www.instagram.com/p/DXjga46Cazr/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" },
+          { label: "Konten Edukasi Part 2", url: "https://www.instagram.com/p/DY9f0sWmrBu/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" },
+          { label: "Konten Edukasi Part 3", url: "https://www.instagram.com/p/DaFsvRNmu76/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" }
+        ]
+      },
+      6: {
+        title: "Matek Ambis",
+        category: "Akademik",
+        abbrev: "",
+        icon: "fa-graduation-cap",
+        description: "Program publikasi apresiasi fungsional melalui poster ucapan selamat atas pencapaian prestasi kontingen matematika di berbagai perlombaan, sekaligus penyediaan pusat publikasi informasi kompetisi terbaru yang dapat diikuti oleh mahasiswa Departemen Matematika.<br><br><b>Tujuan:</b> Memberikan dorongan moral, dukungan moril, dan apresiasi nyata bagi kontingen lomba matematika serta meningkatkan minat kompetisi mahasiswa.",
+        links: [
+          { label: "Apresiasi Perlombaan 1", url: "https://www.instagram.com/p/DY6kOQymjuj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" },
+          { label: "Apresiasi Perlombaan 2", url: "https://www.instagram.com/p/DbAlUpOmuzM/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" }
+        ]
+      },
+      7: {
+        title: "Diskusi Peminatan",
+        category: "Keilmuan",
+        abbrev: "D-Stan",
+        icon: "fa-route",
+        description: "Sosialisasi interaktif bagi mahasiswa mengenai arah fokus bidang peminatan matematika di Departemen Matematika FMIPA UI (seperti Matematika Murni, Riset Operasi, Aktuaria, Komputasi) bersama dosen departemen.<br><br><b>Tujuan:</b> Mengenalkan peminatan studi yang tersedia di departemen serta memberikan panduan studi lanjut."
+      },
+      8: {
+        title: "Matrikulasi x Early Class",
+        category: "Akademik",
+        abbrev: "",
+        icon: "fa-clock",
+        description: "Program matrikulasi luring (offline) sebelum masa perkuliahan aktif untuk membekali mahasiswa baru angkatan 2026 dengan konsep-konsep dasar Matematika Dasar. Kegiatan ini dipandu langsung oleh dosen departemen serta pengajar mahasiswa senior.<br><br><b>Tujuan:</b> Mempersiapkan kesiapan akademis mahasiswa baru dalam menghadapi transisi perkuliahan matematika tingkat awal.<br><b>Sasaran:</b> Mahasiswa Baru Angkatan 2026."
+      }
+    };
+
+    const MEMBER_DATA = [
+      { name: "Mohammad Adrian Rahman Ekoputra", role: "Kepala Departemen (Matematika 2024)", isLeader: true, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com", photo: "foto/adrian.png" },
+      { name: "Firdha Nazla Soblia", role: "Deputi I Departemen (Matematika 2024)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
+      { name: "Inshovi Amiroh", role: "Staf Ahli (Statistika 2024)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
+      { name: "Syandana Rizky Pratama", role: "Staf Ahli (Ilmu Aktuaria 2024)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
+      { name: "Alvarado Jumadin Pratama Putra", role: "Staf (Matematika 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
+      { name: "Chelsea Evengeline", role: "Staf (Ilmu Aktuaria 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
+      { name: "Chesta Adabi Martono", role: "Staf (Matematika 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
+      { name: "Dimaz Satya Ardendi", role: "Staf (Matematika 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
+      { name: "Keefa Ardaprathama Putra", role: "Staf (Ilmu Aktuaria 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
+      { name: "Khairin Nawal", role: "Staf (Ilmu Aktuaria 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
+      { name: "Manuel Jirre", role: "Staf (Matematika 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
+      { name: "Nadiva Kayla Nurazizah", role: "Staf (Matematika 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
+      { name: "Nathanael Levi Gunawan", role: "Staf (Ilmu Aktuaria 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
+      { name: "Nelson Teja", role: "Staf (Statistika 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
+      { name: "Theofil Yosafat Partahi Nandeak", role: "Staf (Statistika 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" },
+      { name: "Vioreni Chafifah Gahati", role: "Staf (Ilmu Aktuaria 2025)", isLeader: false, instagram: "https://www.instagram.com/radian.hmdm/", email: "mailto:radian.hmdmfmipaui@gmail.com" }
+    ];
+
+    const AV_CLASSES = ["av-1", "av-2", "av-3", "av-4"];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      initPreloader();
+      initHeader();
+      initNavigation();
+      initSlideshow();
+      initProkerCards();
+      initModalController();
+      renderMemberSlider();
+      initReveal();
+      initBackToTop();
+    });
+
+    function getInitials(name) {
+      return name.split(/\s+/).map(w => w.charAt(0)).slice(0, 2).join("").toUpperCase();
+    }
+
+    function renderMemberSlider() {
+      const slider = document.getElementById("member-slider");
+      if (!slider) return;
+
+      slider.innerHTML = MEMBER_DATA.map((m, i) => {
+        const avatarHtml = m.photo 
+          ? `<div class="member-avatar"><img src="${m.photo}" alt="${m.name}" loading="lazy"></div>`
+          : `<div class="member-avatar ${AV_CLASSES[i % AV_CLASSES.length]}">${getInitials(m.name)}</div>`;
+
+        return `
+          <article class="member-card ${m.isLeader ? 'leader' : ''}">
+            ${avatarHtml}
+            <h3 class="member-name">${m.name}</h3>
+            <span class="member-role">${m.role}</span>
+            <div class="member-socials">
+              <a href="${m.instagram}" target="_blank" rel="noopener noreferrer" class="member-social-link" aria-label="Instagram ${m.name}">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="${m.email}" class="member-social-link" aria-label="Email ${m.name}">
+                <i class="fa-solid fa-envelope"></i>
+              </a>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      const prevBtn = document.getElementById("member-prev");
+      const nextBtn = document.getElementById("member-next");
+      if (prevBtn && nextBtn) {
+        const getScrollAmount = () => {
+          const card = slider.querySelector(".member-card");
+          return card ? card.offsetWidth + 24 : 320;
+        };
+        prevBtn.addEventListener("click", () => {
+          slider.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+        });
+        nextBtn.addEventListener("click", () => {
+          slider.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+        });
+      }
+    }
+
+    function initPreloader() {
+      const preloader = document.getElementById("preloader");
+      if (!preloader) return;
+      let finished = false;
+      const hide = () => {
+        if (finished) return;
+        finished = true;
+        document.body.classList.remove("loading");
+        preloader.classList.add("hidden");
+        setTimeout(() => preloader.remove(), 500);
+      };
+      window.addEventListener("load", hide);
+      setTimeout(hide, 1200);
+    }
+
+    function initHeader() {
+      const header = document.getElementById("site-header");
+      const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 20);
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+
+      const sections = document.querySelectorAll("section[id]");
+      const links = document.querySelectorAll(".nav-link");
+      const spy = () => {
+        const pos = window.scrollY + 140;
+        let currentId = "";
+        sections.forEach(sec => { if (pos >= sec.offsetTop) currentId = sec.id; });
+        links.forEach(link => link.classList.toggle("active", link.getAttribute("href") === "#" + currentId));
+      };
+      spy();
+      window.addEventListener("scroll", spy, { passive: true });
+    }
+
+    function initNavigation() {
+      const toggleBtn = document.getElementById("nav-toggle");
+      const navMenu = document.getElementById("nav-menu");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      toggleBtn.addEventListener("click", (e) => {
+        const expanded = toggleBtn.getAttribute("aria-expanded") === "true";
+        toggleBtn.setAttribute("aria-expanded", String(!expanded));
+        navMenu.classList.toggle("active");
+        e.stopPropagation();
+      });
+
+      navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          toggleBtn.setAttribute("aria-expanded", "false");
+          navMenu.classList.remove("active");
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!navMenu.contains(event.target) && !toggleBtn.contains(event.target)) {
+          toggleBtn.setAttribute("aria-expanded", "false");
+          navMenu.classList.remove("active");
+        }
+      });
+    }
+
+    function initSlideshow() {
+      const slideshow = document.getElementById("hero-slideshow");
+      if (!slideshow) return;
+      const inner = slideshow.querySelector(".hero-slideshow-inner");
+      if (!inner) return;
+      const slides = inner.querySelectorAll(".slide");
+      const prevBtn = document.getElementById("slide-prev");
+      const nextBtn = document.getElementById("slide-next");
+      const indicator = document.getElementById("slide-indicator");
+      const total = slides.length;
+
+      const syncFallback = (slide) => {
+        const img = slide.querySelector("img");
+        const fb = slide.querySelector(".slide-fallback");
+        if (img && fb) {
+          const hidden = img.complete && img.naturalWidth === 0;
+          fb.style.display = hidden ? "flex" : "none";
+        }
+      };
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+          inner.scrollBy({ left: -inner.offsetWidth, behavior: "smooth" });
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+          inner.scrollBy({ left: inner.offsetWidth, behavior: "smooth" });
+        });
+      }
+
+      const updateIndicator = () => {
+        const idx = Math.round(inner.scrollLeft / inner.offsetWidth);
+        if (indicator) indicator.textContent = `${idx + 1} / ${total}`;
+      };
+      inner.addEventListener("scroll", updateIndicator, { passive: true });
+
+      slides.forEach(slide => {
+        const img = slide.querySelector("img");
+        if (img) {
+          img.addEventListener("load", () => syncFallback(slide));
+          syncFallback(slide);
+        }
+      });
+
+      updateIndicator();
+    }
+
+    function initProkerCards() {
+      document.querySelectorAll(".proker-link").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-proker-id");
+          if (PROKER_DATA[id]) populateAndShowModal(PROKER_DATA[id]);
+        });
+      });
+    }
+
+    const modal = document.getElementById("proker-modal");
+    const closeBtn = document.getElementById("modal-close");
+
+    function initModalController() {
+      if (!modal || !closeBtn) return;
+      closeBtn.addEventListener("click", () => modal.close());
+      modal.addEventListener("click", (event) => {
+        if (event.target !== modal) return;
+        const rect = modal.getBoundingClientRect();
+        const inside = (
+          rect.top <= event.clientY && event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX && event.clientX <= rect.left + rect.width
+        );
+        if (!inside) modal.close();
+      });
+      modal.addEventListener("cancel", () => modal.close());
+    }
+
+    function populateAndShowModal(data) {
+      document.getElementById("modal-cat").textContent = data.category;
+      document.getElementById("modal-title").textContent = data.title;
+      document.getElementById("modal-desc").innerHTML = data.description;
+      document.getElementById("modal-icon").innerHTML = `<i class="fa-solid ${data.icon}"></i>`;
+
+      const abbrevEl = document.getElementById("modal-abbrev");
+      if (data.abbrev) {
+        abbrevEl.textContent = data.abbrev;
+        abbrevEl.style.display = "inline-block";
+      } else {
+        abbrevEl.style.display = "none";
+      }
+
+      const container = document.getElementById("modal-links-container");
+      if (container) {
+        container.innerHTML = "";
+        
+        if (data.links && Array.isArray(data.links)) {
+          data.links.forEach(lnk => {
+            const btn = document.createElement("a");
+            btn.className = "modal-btn";
+            btn.href = lnk.url;
+            btn.target = "_blank";
+            btn.rel = "noopener noreferrer";
+            btn.innerHTML = `${lnk.label} <i class="fa-solid fa-arrow-up-right-from-square"></i>`;
+            container.appendChild(btn);
+          });
+        } else if (data.link) {
+          const btn = document.createElement("a");
+          btn.className = "modal-btn";
+          btn.href = data.link;
+          btn.target = "_blank";
+          btn.rel = "noopener noreferrer";
+          btn.innerHTML = `Lihat Dokumentasi <i class="fa-solid fa-arrow-up-right-from-square"></i>`;
+          container.appendChild(btn);
+        } else {
+          const btn = document.createElement("span");
+          btn.className = "modal-btn";
+          btn.setAttribute("data-disabled", "true");
+          btn.innerHTML = `Dokumentasi Menyusul <i class="fa-solid fa-hourglass-half"></i>`;
+          container.appendChild(btn);
+        }
+      }
+
+      modal.showModal();
+    }
+
+    function observeReveal(el) {
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      io.observe(el);
+    }
+
+    function initReveal() {
+      document.querySelectorAll(".reveal").forEach(el => observeReveal(el));
+    }
+
+    function initBackToTop() {
+      const btn = document.getElementById("back-to-top");
+      if (!btn) return;
+      const onScroll = () => btn.classList.toggle("show", window.scrollY > 600);
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    }
+  </script>
+</body>
+</html>
