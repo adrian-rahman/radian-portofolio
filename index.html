@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,19 @@
   <title>Departemen Radian – HMDM FMIPA UI 2026</title>
   <link rel="icon" type="image/png" href="https://iili.io/CgL7KNI.png">
   <script defer src="/_vercel/insights/script.js"></script>
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('radian-theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +31,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
-    :root {
+    :root, [data-theme="dark"] {
       --bg: #0b0c10;
       --bg-elevated: #12141c;
       --bg-card: #151824;
@@ -28,6 +41,20 @@
       --text: #f4f5f8;
       --text-muted: #9699a6;
       --text-faint: #5a5d6e;
+      --heading-color: #ffffff;
+
+      --header-bg: rgba(11, 12, 16, 0.82);
+      --header-bg-scrolled: rgba(11, 12, 16, 0.95);
+      --footer-bg: #08080c;
+      --radial-glow: rgba(217, 37, 37, 0.08);
+      --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.4);
+      --shadow-modal: 0 25px 60px rgba(0, 0, 0, 0.7);
+      --backdrop-bg: rgba(0, 0, 0, 0.75);
+
+      --btn-ghost-bg: rgba(255, 255, 255, 0.04);
+      --btn-ghost-hover: rgba(255, 255, 255, 0.08);
+      --control-btn-bg: rgba(11, 12, 16, 0.75);
+      --control-btn-color: #ffffff;
 
       --red: #d92525;
       --red-bright: #eb3636;
@@ -48,6 +75,41 @@
       --transition: 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
+    [data-theme="light"] {
+      --bg: #f5f7fa;
+      --bg-elevated: #ffffff;
+      --bg-card: #ffffff;
+      --border: rgba(0, 0, 0, 0.09);
+      --border-hover: rgba(0, 0, 0, 0.2);
+      
+      --text: #222634;
+      --text-muted: #565d70;
+      --text-faint: #8a92a6;
+      --heading-color: #0f121d;
+
+      --header-bg: rgba(245, 247, 250, 0.88);
+      --header-bg-scrolled: rgba(255, 255, 255, 0.96);
+      --footer-bg: #eaedf4;
+      --radial-glow: rgba(217, 37, 37, 0.05);
+      --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
+      --shadow-modal: 0 20px 50px rgba(0, 0, 0, 0.16);
+      --backdrop-bg: rgba(15, 18, 29, 0.5);
+
+      --btn-ghost-bg: rgba(0, 0, 0, 0.04);
+      --btn-ghost-hover: rgba(0, 0, 0, 0.08);
+      --control-btn-bg: rgba(255, 255, 255, 0.88);
+      --control-btn-color: #222634;
+
+      --red: #c81e1e;
+      --red-bright: #b81717;
+      --red-deep: #8f1313;
+      --red-subtle: rgba(200, 30, 30, 0.08);
+      --red-border: rgba(200, 30, 30, 0.22);
+
+      --gold: #b37e24;
+      --gold-subtle: rgba(179, 126, 36, 0.1);
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     html {
@@ -58,6 +120,7 @@
       font-family: var(--font-main);
       font-size: 16px;
       -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
     }
 
     body {
@@ -65,13 +128,14 @@
       overflow-x: hidden;
       line-height: 1.6;
       background-color: var(--bg);
-      background-image: radial-gradient(circle at 50% 0%, rgba(217, 37, 37, 0.08) 0%, transparent 60%);
+      background-image: radial-gradient(circle at 50% 0%, var(--radial-glow) 0%, transparent 60%);
+      transition: background-color var(--transition), color var(--transition);
     }
 
     h1, h2, h3, h4 {
       font-family: var(--font-main);
       font-weight: 700;
-      color: var(--text);
+      color: var(--heading-color);
       line-height: 1.2;
       letter-spacing: -0.02em;
     }
@@ -226,21 +290,21 @@
       z-index: 100;
       display: flex;
       align-items: center;
-      background: rgba(11, 12, 16, 0.8);
+      background: var(--header-bg);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      transition: background var(--transition);
+      transition: background var(--transition), border-color var(--transition);
     }
     #site-header.scrolled {
-      background: rgba(11, 12, 16, 0.95);
+      background: var(--header-bg-scrolled);
       border-bottom-color: var(--border-hover);
     }
 
     .nav-container { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
     .nav-brand { display: flex; align-items: center; gap: 0.8rem; }
     .nav-logo { height: 34px; width: auto; border-radius: 6px; }
-    .nav-brand-text { font-size: 1.15rem; font-weight: 700; color: var(--text); }
+    .nav-brand-text { font-size: 1.15rem; font-weight: 700; color: var(--heading-color); }
     .nav-brand-text b { color: var(--red-bright); }
 
     .nav-menu { display: flex; align-items: center; gap: 2rem; }
@@ -264,8 +328,60 @@
       transform-origin: right;
       transition: transform var(--transition);
     }
-    .nav-link:hover, .nav-link.active { color: #ffffff; }
+    .nav-link:hover, .nav-link.active { color: var(--heading-color); }
     .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); transform-origin: left; }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .theme-toggle-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--btn-ghost-bg);
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all var(--transition);
+      position: relative;
+    }
+    .theme-toggle-btn:hover {
+      background: var(--btn-ghost-hover);
+      border-color: var(--border-hover);
+      color: var(--red-bright);
+      transform: translateY(-2px);
+    }
+    .theme-icon-light, .theme-icon-dark {
+      position: absolute;
+      transition: transform 0.3s var(--transition), opacity 0.3s var(--transition);
+    }
+    [data-theme="dark"] .theme-icon-light,
+    :root:not([data-theme="light"]) .theme-icon-light {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+      color: var(--gold);
+    }
+    [data-theme="dark"] .theme-icon-dark,
+    :root:not([data-theme="light"]) .theme-icon-dark {
+      opacity: 0;
+      transform: rotate(90deg) scale(0);
+    }
+    [data-theme="light"] .theme-icon-light {
+      opacity: 0;
+      transform: rotate(-90deg) scale(0);
+    }
+    [data-theme="light"] .theme-icon-dark {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+      color: #31364a;
+    }
 
     .nav-toggle {
       display: none;
@@ -336,7 +452,7 @@
       overflow: hidden;
       border: 1px solid var(--border);
       background: var(--bg-card);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      box-shadow: var(--shadow-card);
     }
     .hero-slideshow-inner {
       display: flex;
@@ -385,8 +501,8 @@
       height: 36px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--border);
-      background: rgba(11, 12, 16, 0.75);
-      color: #fff;
+      background: var(--control-btn-bg);
+      color: var(--control-btn-color);
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -396,6 +512,7 @@
     .slide-control-btn:hover {
       background: var(--red);
       border-color: var(--red);
+      color: #ffffff;
     }
     .slide-indicator {
       position: absolute;
@@ -404,8 +521,8 @@
       z-index: 10;
       font-size: 0.75rem;
       font-weight: 600;
-      color: var(--text);
-      background: rgba(11, 12, 16, 0.75);
+      color: var(--control-btn-color);
+      background: var(--control-btn-bg);
       border: 1px solid var(--border);
       padding: 0.35rem 0.75rem;
       border-radius: var(--radius-sm);
@@ -427,11 +544,12 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      box-shadow: var(--shadow-card);
     }
     .visi-card h3 {
       font-size: 1.5rem;
       margin-bottom: 1.2rem;
-      color: #ffffff;
+      color: var(--heading-color);
     }
     .visi-text {
       font-size: 1.05rem;
@@ -457,6 +575,7 @@
       gap: 1.2rem;
       align-items: flex-start;
       transition: border-color var(--transition);
+      box-shadow: var(--shadow-card);
     }
     .misi-item:hover {
       border-color: var(--border-hover);
@@ -475,7 +594,7 @@
     .misi-item h4 {
       font-size: 1.05rem;
       margin-bottom: 0.35rem;
-      color: #ffffff;
+      color: var(--heading-color);
     }
     .misi-item p { font-size: 0.92rem; line-height: 1.6; }
 
@@ -520,7 +639,7 @@
     }
     .timeline-item:hover .timeline-node {
       background: var(--red-bright);
-      border-color: #ffffff;
+      border-color: var(--heading-color);
       transform: translate(-50%, -50%) scale(1.3);
     }
 
@@ -553,18 +672,11 @@
       gap: 0.6rem;
       margin-bottom: 0.6rem;
     }
-    .proker-cat {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
     .proker-abbrev {
       font-size: 0.68rem;
       font-weight: 700;
       color: var(--text-muted);
-      background: rgba(255, 255, 255, 0.06);
+      background: var(--btn-ghost-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
       padding: 0.15rem 0.5rem;
@@ -573,7 +685,7 @@
     .timeline-text-col h3 {
       font-size: 1.75rem;
       margin-bottom: 0.6rem;
-      color: #ffffff;
+      color: var(--heading-color);
     }
     .proker-brief {
       font-size: 0.95rem;
@@ -590,7 +702,7 @@
       font-size: 0.84rem;
       font-weight: 600;
       color: var(--text);
-      background: rgba(255, 255, 255, 0.04);
+      background: var(--btn-ghost-bg);
       border: 1px solid var(--border);
       padding: 0.6rem 1.2rem;
       border-radius: var(--radius-sm);
@@ -611,6 +723,7 @@
       overflow: hidden;
       border: 1px solid var(--border);
       background: var(--bg-card);
+      box-shadow: var(--shadow-card);
       transition: border-color var(--transition);
     }
     .timeline-item:hover .timeline-photo-col {
@@ -682,6 +795,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      box-shadow: var(--shadow-card);
       transition: border-color var(--transition), transform var(--transition);
     }
     .member-card:hover {
@@ -723,7 +837,7 @@
     .member-name {
       font-size: 1.02rem;
       font-weight: 700;
-      color: #ffffff;
+      color: var(--heading-color);
       margin-bottom: 0.4rem;
       height: 2.7rem;
       display: flex;
@@ -755,7 +869,7 @@
       height: 32px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.03);
+      background: var(--btn-ghost-bg);
       color: var(--text-muted);
       display: flex;
       align-items: center;
@@ -782,11 +896,11 @@
       transform: translate(-50%, -50%);
       color: var(--text);
       background: var(--bg-elevated);
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      box-shadow: var(--shadow-modal);
       z-index: 1000;
     }
     dialog::backdrop {
-      background: rgba(0, 0, 0, 0.75);
+      background: var(--backdrop-bg);
       backdrop-filter: blur(4px);
     }
 
@@ -810,15 +924,6 @@
     }
     .modal-close-btn:hover { background: var(--red); border-color: var(--red); color: #fff; }
 
-    .modal-cat {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.8rem;
-      display: block;
-    }
     .modal-head {
       display: flex;
       align-items: center;
@@ -840,20 +945,20 @@
       font-size: 1.2rem;
       flex-shrink: 0;
     }
-    .modal-title { font-size: 1.5rem; color: #ffffff; }
+    .modal-title { font-size: 1.5rem; color: var(--heading-color); }
     .modal-abbrev {
       display: inline-block;
       font-size: 0.68rem;
       font-weight: 700;
       color: var(--text-muted);
-      background: rgba(255, 255, 255, 0.06);
+      background: var(--btn-ghost-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
       padding: 0.15rem 0.5rem;
       margin-top: 0.3rem;
     }
     .modal-desc { font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.8rem; }
-    .modal-desc b { color: #ffffff; }
+    .modal-desc b { color: var(--heading-color); }
     .modal-desc .en { font-style: italic; font-family: var(--font-serif); color: var(--gold); }
 
     .modal-links-container { display: flex; flex-wrap: wrap; gap: 0.8rem; }
@@ -871,7 +976,7 @@
     }
     .modal-btn:hover { background: var(--red-bright); transform: translateY(-2px); }
     .modal-btn[data-disabled="true"] {
-      background: rgba(255, 255, 255, 0.06);
+      background: var(--btn-ghost-bg);
       color: var(--text-faint);
       cursor: default;
       pointer-events: none;
@@ -881,7 +986,7 @@
     footer {
       margin-top: 4rem;
       padding: 4.5rem 0 2rem;
-      background: #08080c;
+      background: var(--footer-bg);
       border-top: 1px solid var(--border);
     }
     .footer-grid {
@@ -892,7 +997,7 @@
       margin-bottom: 3rem;
     }
     .footer-brand .footer-logo { height: 38px; width: auto; border-radius: 6px; margin-bottom: 1rem; }
-    .footer-title { font-size: 1.5rem; margin-bottom: 0.25rem; }
+    .footer-title { font-size: 1.5rem; margin-bottom: 0.25rem; color: var(--heading-color); }
     .footer-title b { color: var(--red-bright); }
     .footer-subtitle { font-size: 0.85rem; color: var(--text-faint); font-weight: 600; }
     .footer-desc { margin-top: 0.85rem; font-size: 0.92rem; max-width: 400px; }
@@ -975,7 +1080,7 @@
         top: var(--header-h);
         left: 0;
         width: 100%;
-        background: rgba(11, 12, 16, 0.98);
+        background: var(--bg-elevated);
         border-bottom: 1px solid var(--border);
         padding: 1.8rem;
         flex-direction: column;
@@ -1052,9 +1157,16 @@
         </ul>
       </nav>
 
-      <button class="nav-toggle" id="nav-toggle" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="nav-menu">
-        <span class="hamburger-icon"></span>
-      </button>
+      <div class="header-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Ganti mode tampilan" title="Ganti Mode Tampilan">
+          <i class="fa-solid fa-moon theme-icon-dark"></i>
+          <i class="fa-solid fa-sun theme-icon-light"></i>
+        </button>
+
+        <button class="nav-toggle" id="nav-toggle" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="nav-menu">
+          <span class="hamburger-icon"></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -1166,9 +1278,6 @@
               </div>
             </div>
             <div class="timeline-text-col">
-              <div class="proker-meta">
-                <span class="proker-cat">Nasional</span>
-              </div>
               <h3>LOGIKA UI 2026</h3>
               <p class="proker-brief">Lomba Kegiatan Matematika UI berskala nasional untuk siswa SMA/sederajat dan mahasiswa di seluruh Indonesia guna memperkenalkan Departemen Matematika.</p>
               <button class="proker-link" data-proker-id="1">Lihat Detail <i class="fa-solid fa-arrow-right"></i></button>
@@ -1184,9 +1293,6 @@
               </div>
             </div>
             <div class="timeline-text-col">
-              <div class="proker-meta">
-                <span class="proker-cat">Keilmuan</span>
-              </div>
               <h3>Database Radian</h3>
               <p class="proker-brief">Penyediaan <span class="en">database</span> referensi akademik, soal-soal latihan menggunakan LaTeX, buku kuliah, dan pengarsipan prestasi akademik mahasiswa.</p>
               <button class="proker-link" data-proker-id="2">Lihat Detail <i class="fa-solid fa-arrow-right"></i></button>
@@ -1202,9 +1308,6 @@
               </div>
             </div>
             <div class="timeline-text-col">
-              <div class="proker-meta">
-                <span class="proker-cat">Diskusi</span>
-              </div>
               <h3>Math Discussion</h3>
               <p class="proker-brief">Sesi diskusi daring di media sosial Departemen Radian terkait kisi-kisi soal kuis, UTS, dan UAS menjelang pekan ujian.</p>
               <button class="proker-link" data-proker-id="3">Lihat Detail <i class="fa-solid fa-arrow-right"></i></button>
@@ -1221,7 +1324,6 @@
             </div>
             <div class="timeline-text-col">
               <div class="proker-meta">
-                <span class="proker-cat">Prestasi</span>
                 <span class="proker-abbrev">MAIL</span>
               </div>
               <h3>Matematika Aktif Ikut Lomba</h3>
@@ -1240,7 +1342,6 @@
             </div>
             <div class="timeline-text-col">
               <div class="proker-meta">
-                <span class="proker-cat">Diskusi</span>
                 <span class="proker-abbrev">MALMAT</span>
               </div>
               <h3>Malmingan Amat</h3>
@@ -1258,9 +1359,6 @@
               </div>
             </div>
             <div class="timeline-text-col">
-              <div class="proker-meta">
-                <span class="proker-cat">Akademik</span>
-              </div>
               <h3>Matek Ambis</h3>
               <p class="proker-brief">Pemberian apresiasi ucapan selamat atas prestasi kontingen matematika serta penyediaan pusat informasi perlombaan terbaru.</p>
               <button class="proker-link" data-proker-id="6">Lihat Detail <i class="fa-solid fa-arrow-right"></i></button>
@@ -1277,7 +1375,6 @@
             </div>
             <div class="timeline-text-col">
               <div class="proker-meta">
-                <span class="proker-cat">Keilmuan</span>
                 <span class="proker-abbrev">D-Stan</span>
               </div>
               <h3>Diskusi Peminatan</h3>
@@ -1295,9 +1392,6 @@
               </div>
             </div>
             <div class="timeline-text-col">
-              <div class="proker-meta">
-                <span class="proker-cat">Akademik</span>
-              </div>
               <h3>Matrikulasi x Early Class</h3>
               <p class="proker-brief">Program matrikulasi tatap muka (offline) materi Matematika Dasar bagi mahasiswa baru angkatan 2026 bersama dosen dan pengajar mahasiswa.</p>
               <button class="proker-link" data-proker-id="8">Lihat Detail <i class="fa-solid fa-arrow-right"></i></button>
@@ -1334,7 +1428,6 @@
   <dialog id="proker-modal" aria-labelledby="modal-title">
     <div class="modal-inner">
       <button class="modal-close-btn" id="modal-close" aria-label="Tutup dialog"><i class="fa-solid fa-xmark"></i></button>
-      <span class="modal-cat" id="modal-cat">Kategori</span>
       <div class="modal-head">
         <div class="modal-icon" id="modal-icon"><i class="fa-solid fa-circle-info"></i></div>
         <div>
@@ -1375,72 +1468,73 @@
     const PROKER_DATA = {
       1: {
         title: "LOGIKA UI 2026",
-        category: "Nasional",
         abbrev: "",
         icon: "fa-cubes",
         description: "Lomba Kegiatan Matematika (LOGIKA) UI 2026 adalah kompetisi matematika tingkat nasional untuk siswa SMA/sederajat dan mahasiswa di seluruh Indonesia guna mempopulerkan matematika dan memperkenalkan Departemen Matematika FMIPA UI.<br><br><b>Tujuan:</b> Meningkatkan minat terhadap matematika dan mengenalkan UI ke publik.<br><b>Sasaran:</b> Pelajar SMA dan Mahasiswa Nasional.",
-        link: "https://www.logikaui.id/"
+        links: [
+          { label: "Kunjungi Website", url: "https://www.logikaui.id/" }
+        ]
       },
       2: {
         title: "Database Radian",
-        category: "Keilmuan",
         abbrev: "",
         icon: "fa-database",
         description: "Penyediaan pangkalan data akademik terarsip rapi, kuis, soal UTS/UAS beserta kunci jawaban menggunakan penulisan LaTeX terstandar, buku-buku referensi kuliah, serta database prestasi.<br><br><b>Tujuan:</b> Membantu materi pembelajaran mandiri mahasiswa matematika FMIPA UI.<br><b>Sasaran:</b> Mahasiswa Aktif Matematika FMIPA UI.",
-        link: "https://drive.google.com/drive/folders/14rHnulHxTLWW6_VedkkBT0r_vgfxWjzq?hl=ID"
+        links: [
+          { label: "Lihat Drive", url: "https://drive.google.com/drive/folders/14rHnulHxTLWW6_VedkkBT0r_vgfxWjzq?hl=ID" }
+        ]
       },
       3: {
         title: "Math Discussion",
-        category: "Diskusi",
         abbrev: "",
         icon: "fa-comments",
         description: "Sesi diskusi online interaktif yang diselenggarakan H-1 menjelang pekan UTS dan UAS untuk membahas kisi-kisi dan penyelesaian soal mata kuliah tingkat satu dan dua.<br><br><b>Tujuan:</b> Mengatasi kesulitan akademis menjelang ujian secara kolektif.<br><b>Sasaran:</b> Mahasiswa tingkat satu dan dua.",
         links: [
-          { label: "Pembahasan Ujian Sesi 1", url: "https://www.instagram.com/p/DWvHYj8ic12/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" },
-          { label: "Pembahasan Ujian Sesi 2", url: "https://www.instagram.com/p/DYtW-7OGtOj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" }
+          { label: "Lihat Arsip 1", url: "https://www.instagram.com/p/DWvHYj8ic12/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" },
+          { label: "Lihat Arsip 2", url: "https://www.instagram.com/p/DYtW-7OGtOj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" }
         ]
       },
       4: {
         title: "Matematika Aktif Ikut Lomba",
-        category: "Prestasi",
         abbrev: "MAIL",
         icon: "fa-trophy",
         description: "Program kerja inovatif berupa penyediaan pusat informasi dan pendampingan persiapan perlombaan keilmuan tingkat fakultas, UI, regional, hingga nasional.<br><br><b>Tujuan:</b> Meningkatkan partisipasi dan pencapaian prestasi mahasiswa di luar kelas.<br><b>Sasaran:</b> Mahasiswa Aktif Departemen Matematika FMIPA UI.",
-        link: "https://www.instagram.com/p/DY6VcL8Gq6F/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+        links: [
+          { label: "Lihat Publikasi", url: "https://www.instagram.com/p/DY6VcL8Gq6F/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" }
+        ]
       },
       5: {
         title: "Malmingan Amat",
-        category: "Diskusi",
         abbrev: "MALMAT",
         icon: "fa-book-open",
         description: "Penyebaran konten infografis edukatif, video, serta fakta unik berpengetahuan matematika secara berkala melalui media sosial resmi HMDM FMIPA UI.<br><br><b>Tujuan:</b> Mengedukasi dan menghibur mahasiswa serta masyarakat luas lewat sudut pandang matematika yang unik.",
         links: [
-          { label: "Konten Edukasi Part 1", url: "https://www.instagram.com/p/DXjga46Cazr/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" },
-          { label: "Konten Edukasi Part 2", url: "https://www.instagram.com/p/DY9f0sWmrBu/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" },
-          { label: "Konten Edukasi Part 3", url: "https://www.instagram.com/p/DaFsvRNmu76/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" }
+          { label: "Lihat Publikasi 1", url: "https://www.instagram.com/p/DXjga46Cazr/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" },
+          { label: "Lihat Publikasi 2", url: "https://www.instagram.com/p/DY9f0sWmrBu/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" },
+          { label: "Lihat Publikasi 3", url: "https://www.instagram.com/p/DaFsvRNmu76/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" }
         ]
       },
       6: {
         title: "Matek Ambis",
-        category: "Akademik",
         abbrev: "",
         icon: "fa-graduation-cap",
         description: "Program publikasi apresiasi fungsional melalui poster ucapan selamat atas pencapaian prestasi kontingen matematika di berbagai perlombaan, sekaligus penyediaan pusat publikasi informasi kompetisi terbaru yang dapat diikuti oleh mahasiswa Departemen Matematika.<br><br><b>Tujuan:</b> Memberikan dorongan moral, dukungan moril, dan apresiasi nyata bagi kontingen lomba matematika serta meningkatkan minat kompetisi mahasiswa.",
         links: [
-          { label: "Apresiasi Perlombaan 1", url: "https://www.instagram.com/p/DY6kOQymjuj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" },
-          { label: "Apresiasi Perlombaan 2", url: "https://www.instagram.com/p/DbAlUpOmuzM/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" }
+          { label: "Lihat Publikasi 1", url: "https://www.instagram.com/p/DY6kOQymjuj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" },
+          { label: "Lihat Publikasi 2", url: "https://www.instagram.com/p/DbAlUpOmuzM/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" }
         ]
       },
       7: {
         title: "Diskusi Peminatan",
-        category: "Keilmuan",
         abbrev: "D-Stan",
         icon: "fa-route",
-        description: "Sosialisasi interaktif bagi mahasiswa mengenai arah fokus bidang peminatan matematika di Departemen Matematika FMIPA UI (seperti Matematika Murni, Riset Operasi, Aktuaria, Komputasi) bersama dosen departemen.<br><br><b>Tujuan:</b> Mengenalkan peminatan studi yang tersedia di departemen serta memberikan panduan studi lanjut."
+        description: "Sosialisasi interaktif bagi mahasiswa mengenai arah fokus bidang peminatan matematika di Departemen Matematika FMIPA UI (seperti Matematika Murni, Riset Operasi, Aktuaria, Komputasi) bersama dosen departemen.<br><br><b>Tujuan:</b> Mengenalkan peminatan studi yang tersedia di departemen serta memberikan panduan studi lanjut.",
+        links: [
+          { label: "Lihat PPT Dosen", url: "https://drive.google.com/drive/folders/1-rM5hCM9nkd1CVkVZ5vFe6g932Vtjbeu" }
+        ]
       },
       8: {
         title: "Matrikulasi x Early Class",
-        category: "Akademik",
         abbrev: "",
         icon: "fa-clock",
         description: "Program matrikulasi luring (offline) sebelum masa perkuliahan aktif untuk membekali mahasiswa baru angkatan 2026 dengan konsep-konsep dasar Matematika Dasar. Kegiatan ini dipandu langsung oleh dosen departemen serta pengajar mahasiswa senior.<br><br><b>Tujuan:</b> Mempersiapkan kesiapan akademis mahasiswa baru dalam menghadapi transisi perkuliahan matematika tingkat awal.<br><b>Sasaran:</b> Mahasiswa Baru Angkatan 2026."
@@ -1469,6 +1563,7 @@
     const AV_CLASSES = ["av-1", "av-2", "av-3", "av-4"];
 
     document.addEventListener("DOMContentLoaded", () => {
+      initTheme();
       initPreloader();
       initHeader();
       initNavigation();
@@ -1479,6 +1574,27 @@
       initReveal();
       initBackToTop();
     });
+
+    function initTheme() {
+      const toggleBtn = document.getElementById("theme-toggle");
+      if (!toggleBtn) return;
+
+      const getCurrentTheme = () => {
+        return document.documentElement.getAttribute("data-theme") || 
+          (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      };
+
+      const setTheme = (theme) => {
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("radian-theme", theme);
+      };
+
+      toggleBtn.addEventListener("click", () => {
+        const current = getCurrentTheme();
+        const next = current === "light" ? "dark" : "light";
+        setTheme(next);
+      });
+    }
 
     function getInitials(name) {
       return name.split(/\s+/).map(w => w.charAt(0)).slice(0, 2).join("").toUpperCase();
@@ -1662,7 +1778,6 @@
     }
 
     function populateAndShowModal(data) {
-      document.getElementById("modal-cat").textContent = data.category;
       document.getElementById("modal-title").textContent = data.title;
       document.getElementById("modal-desc").innerHTML = data.description;
       document.getElementById("modal-icon").innerHTML = `<i class="fa-solid ${data.icon}"></i>`;
@@ -1679,7 +1794,7 @@
       if (container) {
         container.innerHTML = "";
         
-        if (data.links && Array.isArray(data.links)) {
+        if (data.links && Array.isArray(data.links) && data.links.length > 0) {
           data.links.forEach(lnk => {
             const btn = document.createElement("a");
             btn.className = "modal-btn";
